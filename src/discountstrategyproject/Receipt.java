@@ -10,11 +10,16 @@ package discountstrategyproject;
  * @author danielbyczynski
  */
 public class Receipt {
+    private final int receiptId;
     Display videoScreen = new VideoScreenDisplay();
     Printer consolePrint = new PrintConsoleLog();
     
+    public Receipt(int id){
+        receiptId = id;
+    }
+    
     public final void addNewProductToPurchase(){
-        System.out.println("Product Added to Purchase");
+        System.out.println("Receipt id=" + receiptId + " | Product Added to Purchase");
         
         updateDisplay();
     }

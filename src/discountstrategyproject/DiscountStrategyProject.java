@@ -19,13 +19,22 @@ public class DiscountStrategyProject {
         // Instantiate new PosRegister to handle requests:
         PosRegister register = new PosRegister();
         
-        register.beginNewOrder();
+        register.beginNewOrder(0);
         
-        register.addNewProductToPurchase();
+        register.addNewProductToPurchase(0);
         
         System.out.println("==========");
         
-        register.completeOrder();
+        register.completeOrder(0);
+        
+        System.out.println("========== Order # 2 ========");
+        register.beginNewOrder(1);
+        
+        register.addNewProductToPurchase(1);
+        
+        System.out.println("==========");
+        
+        register.completeOrder(1);
     }
     
 }

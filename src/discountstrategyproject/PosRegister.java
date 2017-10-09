@@ -17,15 +17,15 @@ public class PosRegister {
         
     }
     
-    public final void beginNewOrder(){
-        receipt[0] = new Receipt(0);
+    public final void beginNewOrder(int receiptId){
+        receipt[receiptId] = new Receipt(receiptId);
     }
     
-    public final void addNewProductToPurchase(){
-        this.receipt[0].addNewProductToPurchase();
+    public final void addNewProductToPurchase(int receiptId){
+        receipt[receiptId].addNewProductToPurchase(receiptId);
     }
     
-    public final void completeOrder(){
-        this.receipt[0].completeOrder();
+    public final void completeOrder(int receiptId){
+        receipt[receiptId].completeOrder(receiptId);
     }
 }

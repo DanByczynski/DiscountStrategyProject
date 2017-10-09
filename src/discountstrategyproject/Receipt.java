@@ -18,14 +18,14 @@ public class Receipt {
         receiptId = id;
     }
     
-    public final void addNewProductToPurchase(){
+    public final void addNewProductToPurchase(int receiptId){
         System.out.println("Receipt id=" + receiptId + " | Product Added to Purchase");
         
         updateDisplay();
     }
     
-    public final void completeOrder(){
-        System.out.println("Order Completed");
+    public final void completeOrder(int receiptId){
+        System.out.println("Receipt id=" + receiptId + " | Order Completed");
         
         consolePrint.printReceipt();
     }

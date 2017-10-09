@@ -15,7 +15,10 @@ public class DiscountStrategyProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        // Instantiate new PosRegister to handle requests:
+        PosRegister register = new PosRegister();
+        
     }
     
 }

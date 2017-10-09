@@ -9,8 +9,9 @@ package discountstrategyproject;
  *
  * @author danielbyczynski
  */
-public class VideoScreen {
-    public final void updateVideoScreen(){
+public class VideoScreenDisplay implements Display {
+    @Override
+    public final void updateDisplay(){
         System.out.println("Video Screen Updated.");
     }
 }

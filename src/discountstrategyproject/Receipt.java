@@ -10,13 +10,13 @@ package discountstrategyproject;
  * @author danielbyczynski
  */
 public class Receipt {
-    VideoScreen videoScreen = new VideoScreen();
+    Display videoScreen = new VideoScreenDisplay();
     Printer consolePrint = new PrintConsoleLog();
     
     public final void addNewProductToPurchase(){
         System.out.println("Product Added to Purchase");
         
-        updateVideoScreen();
+        updateDisplay();
     }
     
     public final void completeOrder(){
@@ -25,8 +25,8 @@ public class Receipt {
         consolePrint.printReceipt();
     }
     
-    private final void updateVideoScreen(){
-        videoScreen.updateVideoScreen();
+    private final void updateDisplay(){
+        videoScreen.updateDisplay();
     }
     
 }

@@ -11,4 +11,17 @@ package discountstrategyproject;
  */
 public class PosRegister {
     
+    Receipt receipt = new Receipt();
+    
+    public void PosRegister(){
+        
+    }
+    
+    public final void addNewProductToPurchase(){
+        receipt.addNewProductToPurchase();
+    }
+    
+    public final void completeOrder(){
+        receipt.completeOrder();
+    }
 }

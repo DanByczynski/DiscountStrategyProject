@@ -10,5 +10,32 @@ package discountstrategyproject;
  * @author danielbyczynski
  */
 public class Customer {
+
+    // ======== Properties ========
+    private String customerId;
+    private String customerName;
+    
+    // ======== Constructor ========
+    public Customer(String customerId, String customerName) {
+        setCustomerId(customerId);
+        setCustomerName(customerName);
+    }
+    
+    // ======== Getters and Setters ========
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    private void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+    
+    private void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
     
 }

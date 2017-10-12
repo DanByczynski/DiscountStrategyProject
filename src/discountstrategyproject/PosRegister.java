@@ -13,13 +13,21 @@ public class PosRegister {
     
     // ======== Properties  ========
     Receipt[] receipt = new Receipt[3];
+
+    Printer printObject;
+    Display displayObject;
+    ReceiptDataAccessStrategy dataStrategy;
+
     
     // ======== Constructor ========
-    public void PosRegister(){
-        
+    PosRegister(Printer printObject, Display displayObject, ReceiptDataAccessStrategy dataStrategy){
+        setPrintObject(printObject);
+        setDisplayObject(displayObject);
+        setDataStrategy(dataStrategy);
     }
     
-    public final void beginNewOrder(int receiptId, Printer printObject, Display displayObject){
+    // ======== Methods ========
+    public final void beginNewOrder(int receiptId){
         receipt[receiptId] = new Receipt(receiptId, displayObject, printObject);
     }
     
@@ -29,5 +37,31 @@ public class PosRegister {
     
     public final void completeOrder(int receiptId){
         receipt[receiptId].completeOrder(receiptId);
+    }
+    
+    // ======== Getters and Setters ========
+    
+    public Printer getPrintObject() {
+        return printObject;
+    }
+
+    public final void setPrintObject(Printer printObject) {
+        this.printObject = printObject;
+    }
+
+    public Display getDisplayObject() {
+        return displayObject;
+    }
+
+    public final void setDisplayObject(Display displayObject) {
+        this.displayObject = displayObject;
+    }
+
+    private ReceiptDataAccessStrategy getDataStrategy() {
+        return dataStrategy;
+    }
+
+    private void setDataStrategy(ReceiptDataAccessStrategy dataStrategy) {
+        this.dataStrategy = dataStrategy;
     }
 }

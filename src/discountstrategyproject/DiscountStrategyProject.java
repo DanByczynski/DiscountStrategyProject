@@ -22,10 +22,10 @@ public class DiscountStrategyProject {
         ReceiptDataAccessStrategy dataStrategy = new InMemoryDatabase();
         
         // Instantiate new PosRegister to handle requests:
-        PosRegister register = new PosRegister();
+        PosRegister register = new PosRegister(consolePrint, videoScreen, dataStrategy);
         
         // ======== Testing ========
-        register.beginNewOrder(0, consolePrint, videoScreen);
+        register.beginNewOrder(0);
         
         register.addNewProductToPurchase(0);
         
@@ -34,7 +34,7 @@ public class DiscountStrategyProject {
         register.completeOrder(0);
         
         System.out.println("========== Order # 2 ========");
-        register.beginNewOrder(1, consolePrint, videoScreen);
+        register.beginNewOrder(1);
         
         register.addNewProductToPurchase(1);
         

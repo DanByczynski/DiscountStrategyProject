@@ -16,10 +16,13 @@ public class DiscountStrategyProject {
      */
     public static void main(String[] args) {
         
+        Display videoScreen = new VideoScreenDisplay();
+        Printer consolePrint = new PrintConsoleLog();
+        
         // Instantiate new PosRegister to handle requests:
         PosRegister register = new PosRegister();
         
-        register.beginNewOrder(0);
+        register.beginNewOrder(0, consolePrint, videoScreen);
         
         register.addNewProductToPurchase(0);
         
@@ -28,7 +31,7 @@ public class DiscountStrategyProject {
         register.completeOrder(0);
         
         System.out.println("========== Order # 2 ========");
-        register.beginNewOrder(1);
+        register.beginNewOrder(1, consolePrint, videoScreen);
         
         register.addNewProductToPurchase(1);
         

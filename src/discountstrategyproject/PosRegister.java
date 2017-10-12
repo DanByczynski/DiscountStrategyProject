@@ -11,14 +11,16 @@ package discountstrategyproject;
  */
 public class PosRegister {
     
+    // ======== Properties  ========
     Receipt[] receipt = new Receipt[3];
     
+    // ======== Constructor ========
     public void PosRegister(){
         
     }
     
-    public final void beginNewOrder(int receiptId){
-        receipt[receiptId] = new Receipt(receiptId);
+    public final void beginNewOrder(int receiptId, Printer printObject, Display displayObject){
+        receipt[receiptId] = new Receipt(receiptId, displayObject, printObject);
     }
     
     public final void addNewProductToPurchase(int receiptId){

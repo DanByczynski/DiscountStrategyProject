@@ -15,13 +15,16 @@ public class Receipt {
     private int receiptId;
     private Display displayObject;
     private Printer printerObject;
+    private ReceiptDataAccessStrategy dataStrategy;
+
     
     // ======== Constructor ========
 
-    public Receipt(int receiptId, Display displayObject, Printer printerObject) {
+    public Receipt(int receiptId, Display displayObject, Printer printerObject, ReceiptDataAccessStrategy dataStrategy) {
         setReceiptId(receiptId);
         setDisplayObject(displayObject);
         setPrinterObject(printerObject);
+        setDataStrategy(dataStrategy);
     }
     
     
@@ -38,7 +41,7 @@ public class Receipt {
         printerObject.printReceipt();
     }
     
-    private final void updateDisplay(){
+    private void updateDisplay(){
         displayObject.updateDisplay();
     }
 
@@ -67,4 +70,11 @@ public class Receipt {
         this.printerObject = printerObject;
     }
     
+    public ReceiptDataAccessStrategy getDataStrategy() {
+        return dataStrategy;
+    }
+
+    public final void setDataStrategy(ReceiptDataAccessStrategy dataStrategy) {
+        this.dataStrategy = dataStrategy;
+    }
 }

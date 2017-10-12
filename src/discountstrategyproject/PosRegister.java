@@ -28,7 +28,7 @@ public class PosRegister {
     
     // ======== Methods ========
     public final void beginNewOrder(int receiptId){
-        receipt[receiptId] = new Receipt(receiptId, displayObject, printObject);
+        receipt[receiptId] = new Receipt(receiptId, displayObject, printObject, dataStrategy);
     }
     
     public final void addNewProductToPurchase(int receiptId){

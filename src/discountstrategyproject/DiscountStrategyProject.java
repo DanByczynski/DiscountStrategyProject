@@ -16,12 +16,15 @@ public class DiscountStrategyProject {
      */
     public static void main(String[] args) {
         
+        // ======== Configuration Declarations ========
         Display videoScreen = new VideoScreenDisplay();
         Printer consolePrint = new PrintConsoleLog();
+        ReceiptDataAccessStrategy dataStrategy = new InMemoryDatabase();
         
         // Instantiate new PosRegister to handle requests:
         PosRegister register = new PosRegister();
         
+        // ======== Testing ========
         register.beginNewOrder(0, consolePrint, videoScreen);
         
         register.addNewProductToPurchase(0);

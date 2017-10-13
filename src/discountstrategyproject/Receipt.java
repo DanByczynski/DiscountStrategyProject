@@ -19,7 +19,7 @@ public class Receipt {
     private ReceiptDataAccessStrategy dataStrategy;
     private FormatService doubleFormat;
     
-    private LineItem[] lineItems = new LineItem[1];
+    private LineItem[] lineItems;
     private String productId;
     
 
@@ -33,23 +33,37 @@ public class Receipt {
         setCustomer(dataStrategy.findCustomerById(customerId));
         setDataStrategy(dataStrategy);
         setDoubleFormat(doubleFormat);
+        lineItems = new LineItem[0];
     }
     
     
     // ======== Methods ========
 
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity) {
-        lineItems[receiptId] = new LineItem( 0, dataStrategy.findProductById(productId), quantity, doubleFormat);
-        lineItems[receiptId].printLineItem();
+        addNewLineItemToArray(new LineItem(0, dataStrategy.findProductById(productId), quantity, doubleFormat));
+        //lineItems[receiptId] = new LineItem( 0, dataStrategy.findProductById(productId), quantity, doubleFormat);
+        
         
         updateDisplay();
 
+    }
+    
+    // ==== Add new lineItem to lineItems array by copying and re-initializing ====
+    private final void addNewLineItemToArray(final LineItem lineItem) {
+        LineItem[] temporaryLineItemArray = new LineItem[lineItems.length + 1];
+        System.arraycopy(lineItems, 0, temporaryLineItemArray, 0, lineItems.length);
+        temporaryLineItemArray[lineItems.length] = lineItem;
+        lineItems = temporaryLineItemArray;
     }
     
     public final void completeOrder(int receiptId){
         System.out.println("Receipt id=" + receiptId + " | Order Completed");
         
         printerObject.printReceipt();
+        
+         for (int i = 0; i < lineItems.length; i++){
+            lineItems[i].printLineItem();
+        }
     }
     
     private void updateDisplay(){
@@ -101,7 +115,7 @@ public class Receipt {
         return doubleFormat;
     }
 
-    public void setDoubleFormat(FormatService doubleFormat) {
+    public final void setDoubleFormat(FormatService doubleFormat) {
         this.doubleFormat = doubleFormat;
     }
 }

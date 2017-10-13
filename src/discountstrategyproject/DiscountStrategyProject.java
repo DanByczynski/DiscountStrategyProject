@@ -32,7 +32,9 @@ public class DiscountStrategyProject {
         
         // ======== Testing ========
         register.beginNewOrder(0, "100");
-        register.addNewProductToPurchase(0, "A101", 70000);
+        register.addNewProductToPurchase(0, "A101", 1);
+        register.addNewProductToPurchase(0, "C222", 4);
+        register.addNewProductToPurchase(0, "B205", 4);
         System.out.println("==========");
         register.completeOrder(0);
         

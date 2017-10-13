@@ -12,7 +12,7 @@ package discountstrategyproject;
 public class PosRegister {
     
     // ======== Properties  ========
-    Receipt[] receipt = new Receipt[3];
+    Receipt[] receipts;
 
     Printer printObject;
     Display displayObject;
@@ -27,19 +27,28 @@ public class PosRegister {
         setDisplayObject(displayObject);
         setDataStrategy(dataStrategy);
         setDoubleFormat(doubleFormat);
+        receipts = new Receipt[0];
     }
     
     // ======== Methods ========
     public final void beginNewOrder(int receiptId, String customerId){
-        receipt[receiptId] = new Receipt(receiptId, displayObject, printObject, customerId, dataStrategy, doubleFormat);
+        addNewReceiptToReceiptArray(new Receipt(receiptId, displayObject, printObject, customerId, dataStrategy, doubleFormat));
     }
     
+    
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity){
-        receipt[receiptId].addNewProductToPurchase(receiptId, productId, quantity);
+        receipts[receiptId].addNewProductToPurchase(receiptId, productId, quantity);
+    }
+    
+    private final void addNewReceiptToReceiptArray(final Receipt receipt){
+        Receipt[] temporaryReceiptArray = new Receipt[receipts.length + 1];
+        System.arraycopy(receipts, 0, temporaryReceiptArray, 0, receipts.length);
+        temporaryReceiptArray[receipts.length] = receipt;
+        receipts = temporaryReceiptArray;
     }
     
     public final void completeOrder(int receiptId){
-        receipt[receiptId].completeOrder(receiptId);
+        receipts[receiptId].completeOrder(receiptId);
     }
     
     // ======== Getters and Setters ========

@@ -41,11 +41,7 @@ public class Receipt {
 
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity) {
         addNewLineItemToArray(new LineItem(0, dataStrategy.findProductById(productId), quantity, doubleFormat));
-        //lineItems[receiptId] = new LineItem( 0, dataStrategy.findProductById(productId), quantity, doubleFormat);
-        
-        
         updateDisplay();
-
     }
     
     // ==== Add new lineItem to lineItems array by copying and re-initializing ====
@@ -56,6 +52,7 @@ public class Receipt {
         lineItems = temporaryLineItemArray;
     }
     
+    // ==== Generate Final Receipt for Printing ====
     public final void completeOrder(int receiptId){
         System.out.println("Receipt id=" + receiptId + " | Order Completed");
         
@@ -66,6 +63,7 @@ public class Receipt {
         }
     }
     
+    // ==== Update display when new items are entered ====
     private void updateDisplay(){
         displayObject.updateDisplay();
     }

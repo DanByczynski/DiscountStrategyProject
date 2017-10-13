@@ -12,6 +12,5 @@ package discountstrategyproject;
 public class VideoScreenDisplay implements Display {
     @Override
     public final void updateDisplay(){
-        System.out.println("Video Screen Updated.");
     }
 }

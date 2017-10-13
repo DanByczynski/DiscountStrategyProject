@@ -54,13 +54,13 @@ public class Receipt {
     
     // ==== Generate Final Receipt for Printing ====
     public final void completeOrder(int receiptId){
-        System.out.println("Receipt id=" + receiptId + " | Order Completed");
         
-        printerObject.printReceipt();
+        printerObject.printHeader(receiptId, customer.getCustomerName());
         
-         for (int i = 0; i < lineItems.length; i++){
-            lineItems[i].printLineItem();
+        for (int i = 0; i < lineItems.length; i++){
+            printerObject.printReceipt(lineItems[i].printLineItem());
         }
+        printerObject.printFooter();
     }
     
     // ==== Update display when new items are entered ====

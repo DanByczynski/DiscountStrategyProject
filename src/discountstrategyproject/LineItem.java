@@ -18,8 +18,8 @@ public class LineItem {
     private final int quantity;
     private FormatService doubleFormat;
 
-    private double productUnitPrice;
-    private double productSalePrice;
+    private final double productUnitPrice;
+    private final double productSalePrice;
     
     
     // ======== Constructor ========
@@ -34,8 +34,8 @@ public class LineItem {
     }
     
     // ======== Methods ========
-    public void printLineItem(){
-        System.out.println(productName + " | Quantity: " + quantity + "| Unit Price: " + doubleFormat.formatDouble(productUnitPrice) + "| Sale Price: " + doubleFormat.formatDouble(productSalePrice));
+    public String printLineItem(){
+        return (productName + " | Quantity: " + quantity + "| Unit Price: " + doubleFormat.formatDouble(productUnitPrice) + "| Sale Price: " + doubleFormat.formatDouble(productSalePrice));
     }
     
     // ======== Getters and Setters ========

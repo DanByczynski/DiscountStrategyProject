@@ -40,14 +40,15 @@ public class DiscountStrategyProject {
         System.out.println("========== Order # 2 ========");
         register.beginNewOrder(1, "200");
         register.addNewProductToPurchase(1, "A101", 5);
-        register.addNewProductToPurchase(0, "C222", 4);
+        register.addNewProductToPurchase(1, "C222", 4);
         register.completeOrder(1);
         
         System.out.println("========== Order # 3 ========");
-        register.beginNewOrder(1, "300");
-        register.addNewProductToPurchase(1, "A101", 5);
-        register.addNewProductToPurchase(0, "C222", 4);
-        register.completeOrder(1);
+        register.beginNewOrder(2, "300");
+        register.addNewProductToPurchase(2, "A101", 5);
+        register.addNewProductToPurchase(2, "C222", 4);
+        register.completeOrder(2);
+        
     }
     
 }

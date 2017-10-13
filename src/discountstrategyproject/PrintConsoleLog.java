@@ -12,7 +12,33 @@ package discountstrategyproject;
 public class PrintConsoleLog implements Printer{
 
     @Override
-    public final void printReceipt() {
-        System.out.println("Receipt Printed!");
+    public void printHeader(int receiptId, String customerName) {
+        System.out.println("================================================================================");
+        System.out.println("================================================================================");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                          KOHLS DEPARTMENT STORE                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                          N95 W18000 Appleton Ave                           ==");
+        System.out.println("==                         Menomonee Falls, WI 53051                          ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                             #" + receiptId + " | " + customerName);
+        System.out.println("==                                                                            ==");
     }
+    
+    @Override
+    public final void printReceipt(String printableString) {
+        System.out.println("== " + printableString);
+    }
+
+    @Override
+    public void printFooter() {
+        System.out.println("================================================================================");
+        System.out.println("================================================================================");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+    }
+
 }

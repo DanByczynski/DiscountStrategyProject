@@ -16,8 +16,9 @@ public class Receipt {
     private Display displayObject;
     private Printer printerObject;
     private Customer customer;
-
     private ReceiptDataAccessStrategy dataStrategy;
+    private FormatService doubleFormat;
+    
     private LineItem[] lineItems = new LineItem[1];
     private String productId;
     
@@ -25,20 +26,20 @@ public class Receipt {
     
     // ======== Constructor ========
 
-    public Receipt(int receiptId, Display displayObject, Printer printerObject, String customerId, ReceiptDataAccessStrategy dataStrategy) {
+    public Receipt(int receiptId, Display displayObject, Printer printerObject, String customerId, ReceiptDataAccessStrategy dataStrategy, FormatService doubleFormat) {
         setReceiptId(receiptId);
         setDisplayObject(displayObject);
         setPrinterObject(printerObject);
         setCustomer(dataStrategy.findCustomerById(customerId));
         setDataStrategy(dataStrategy);
-        System.out.println("Cusotmer: " + customer.getCustomerName());
+        setDoubleFormat(doubleFormat);
     }
     
     
     // ======== Methods ========
 
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity) {
-        lineItems[receiptId] = new LineItem( 0, dataStrategy.findProductById(productId), quantity);
+        lineItems[receiptId] = new LineItem( 0, dataStrategy.findProductById(productId), quantity, doubleFormat);
         lineItems[receiptId].printLineItem();
         
         updateDisplay();
@@ -94,5 +95,14 @@ public class Receipt {
 
     public final void setDataStrategy(ReceiptDataAccessStrategy dataStrategy) {
         this.dataStrategy = dataStrategy;
+    }
+    
+    public FormatService getDoubleFormat() {
+        return doubleFormat;
+    }
+
+    public void setDoubleFormat(FormatService doubleFormat) {
+        this.doubleFormat = doubleFormat;
+        System.out.println("sup boiiiz");
     }
 }

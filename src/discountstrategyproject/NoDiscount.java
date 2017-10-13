@@ -12,7 +12,7 @@ package discountstrategyproject;
 public class NoDiscount implements DiscountStrategy {
 
     @Override
-    public double getDiscountAmount() {
+    public double getDiscountAmount(double productUnitCost, int quantity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

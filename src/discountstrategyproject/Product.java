@@ -37,8 +37,9 @@ public class Product {
     public double getUnitCost() {
         return unitCost;
     }
-    
-    public DiscountStrategy getDiscount() {
-        return discount;
+
+    public double getDiscountedAmount(double productUnitPrice, int quantity) {
+        return discount.getDiscountAmount(productUnitPrice, quantity);
     }
+    
 }

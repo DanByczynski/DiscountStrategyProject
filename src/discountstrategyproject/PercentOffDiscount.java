@@ -23,9 +23,19 @@ public final class PercentOffDiscount implements DiscountStrategy {
     
     // ======== Interface Method Overrides ========
     @Override
-    public double getDiscountAmount() {
-        return 0;
+    public double getDiscountAmount(double productUnitCost, int quantity) {
+        
+        return calculatedDiscountAmount(productUnitCost, quantity);
     }
+    
+    private double calculatedDiscountAmount(double productUnitCost, int quantity){
+        return (productUnitCost * quantity) / (1 + discountPercentInput);
+    }
+    
+    // ======== Round value to two decimal places ========
+//    private String formatDoubleAsCurrencyString(double value) {
+//        return NUMBERFORMATTER.format(value);
+//    }
     
     // 
     

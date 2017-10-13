@@ -17,18 +17,21 @@ public class PosRegister {
     Printer printObject;
     Display displayObject;
     ReceiptDataAccessStrategy dataStrategy;
+    FormatService doubleFormat;
+
 
     
     // ======== Constructor ========
-    PosRegister(Printer printObject, Display displayObject, ReceiptDataAccessStrategy dataStrategy){
+    PosRegister(Printer printObject, Display displayObject, ReceiptDataAccessStrategy dataStrategy, FormatService doubleFormat){
         setPrintObject(printObject);
         setDisplayObject(displayObject);
         setDataStrategy(dataStrategy);
+        setDoubleFormat(doubleFormat);
     }
     
     // ======== Methods ========
     public final void beginNewOrder(int receiptId, String customerId){
-        receipt[receiptId] = new Receipt(receiptId, displayObject, printObject, customerId, dataStrategy);
+        receipt[receiptId] = new Receipt(receiptId, displayObject, printObject, customerId, dataStrategy, doubleFormat);
     }
     
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity){
@@ -63,5 +66,14 @@ public class PosRegister {
 
     private void setDataStrategy(ReceiptDataAccessStrategy dataStrategy) {
         this.dataStrategy = dataStrategy;
+    }
+    
+    public FormatService getDoubleFormat() {
+        return doubleFormat;
+    }
+
+    public void setDoubleFormat(FormatService doubleFormat) {
+        this.doubleFormat = doubleFormat;
+        System.out.println("sup boiiiz");
     }
 }

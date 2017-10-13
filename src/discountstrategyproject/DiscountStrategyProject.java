@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package discountstrategyproject;
-
 /**
  *
  * @author danielbyczynski
@@ -17,16 +16,23 @@ public class DiscountStrategyProject {
     public static void main(String[] args) {
         
         // ======== Configuration ========
+        // Configures output classes
         Display videoScreen = new VideoScreenDisplay();
         Printer consolePrint = new PrintConsoleLog();
+        
+        // Configures data storage classes
         ReceiptDataAccessStrategy dataStrategy = new InMemoryDatabase();
         
+        // Configure FormatService for double to currency format
+        FormatService formatDouble = new CurrencyFormatter();
+        
+        
         // ======== Instantiate new PosRegister ========
-        PosRegister register = new PosRegister(consolePrint, videoScreen, dataStrategy);
+        PosRegister register = new PosRegister(consolePrint, videoScreen, dataStrategy, formatDouble);
         
         // ======== Testing ========
         register.beginNewOrder(0, "100");
-        register.addNewProductToPurchase(0, "A101", 2);
+        register.addNewProductToPurchase(0, "A101", 70000);
         System.out.println("==========");
         register.completeOrder(0);
         

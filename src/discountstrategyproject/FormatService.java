@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package discountstrategyproject;
+
 /**
  *
  * @author danielbyczynski
  */
-public interface DiscountStrategy {
-    public abstract double getDiscountAmount(double productUnitCost, int quantity);
+public interface FormatService {
+    public abstract String formatDouble(double value);
 }

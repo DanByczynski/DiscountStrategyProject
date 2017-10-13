@@ -15,21 +15,29 @@ public class Receipt {
     private int receiptId;
     private Display displayObject;
     private Printer printerObject;
+    private Customer customer;
+
     private ReceiptDataAccessStrategy dataStrategy;
+    private LineItem[] lineItems = new LineItem[1];
+    
 
     
     // ======== Constructor ========
 
-    public Receipt(int receiptId, Display displayObject, Printer printerObject, ReceiptDataAccessStrategy dataStrategy) {
+    public Receipt(int receiptId, Display displayObject, Printer printerObject, String customerId, ReceiptDataAccessStrategy dataStrategy) {
         setReceiptId(receiptId);
         setDisplayObject(displayObject);
         setPrinterObject(printerObject);
+        setCustomer(dataStrategy.findCustomerById(customerId));
         setDataStrategy(dataStrategy);
+        System.out.println("Cusotmer: " + customer.getCustomerName());
     }
     
     
     // ======== Methods ========
     public final void addNewProductToPurchase(int receiptId){
+        
+        
         System.out.println("Receipt id=" + receiptId + " | Product Added to Purchase");
         
         updateDisplay();
@@ -68,6 +76,14 @@ public class Receipt {
 
     public final void setPrinterObject(Printer printerObject) {
         this.printerObject = printerObject;
+    }
+    
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public final void setCustomer(Customer customer) {
+        this.customer = customer;
     }
     
     public ReceiptDataAccessStrategy getDataStrategy() {

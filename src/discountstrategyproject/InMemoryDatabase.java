@@ -30,7 +30,7 @@ public class InMemoryDatabase implements ReceiptDataAccessStrategy {
     // ======== Method overrides for ReceiptDataAccessStrategy interface ========
     // ==== Find and Return customer object by custId ====
     @Override
-    public final Customer findCustomer(final String custId) {
+    public final Customer findCustomerById(final String custId) {
         // validation is needed for method parameter
         if(custId == null || custId.length() == 0) {
             System.out.println("Sorry, FakeDatabase.findCustomer method has "
@@ -53,7 +53,7 @@ public class InMemoryDatabase implements ReceiptDataAccessStrategy {
     
     // ==== Find and Return customer object by prodId ====
     @Override
-    public final Product findProduct(final String prodId) {
+    public final Product findProductById(final String prodId) {
         // validation is needed for method parameter
         if(prodId == null || prodId.length() == 0) {
             System.out.println("Sorry, FakeDatabase.findProduct method has "

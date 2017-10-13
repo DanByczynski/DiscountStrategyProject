@@ -16,30 +16,24 @@ public class DiscountStrategyProject {
      */
     public static void main(String[] args) {
         
-        // ======== Configuration Declarations ========
+        // ======== Configuration ========
         Display videoScreen = new VideoScreenDisplay();
         Printer consolePrint = new PrintConsoleLog();
         ReceiptDataAccessStrategy dataStrategy = new InMemoryDatabase();
         
-        // Instantiate new PosRegister to handle requests:
+        // ======== Instantiate new PosRegister ========
         PosRegister register = new PosRegister(consolePrint, videoScreen, dataStrategy);
         
         // ======== Testing ========
-        register.beginNewOrder(0);
-        
+        register.beginNewOrder(0, "100");
         register.addNewProductToPurchase(0);
-        
         System.out.println("==========");
-        
         register.completeOrder(0);
         
         System.out.println("========== Order # 2 ========");
-        register.beginNewOrder(1);
-        
+        register.beginNewOrder(1, "200");
         register.addNewProductToPurchase(1);
-        
         System.out.println("==========");
-        
         register.completeOrder(1);
     }
     

@@ -19,6 +19,7 @@ public class Receipt {
 
     private ReceiptDataAccessStrategy dataStrategy;
     private LineItem[] lineItems = new LineItem[1];
+    private String productId;
     
 
     
@@ -35,12 +36,13 @@ public class Receipt {
     
     
     // ======== Methods ========
-    public final void addNewProductToPurchase(int receiptId){
-        
-        
-        System.out.println("Receipt id=" + receiptId + " | Product Added to Purchase");
+
+    public final void addNewProductToPurchase(int receiptId, String productId, int quantity) {
+        lineItems[receiptId] = new LineItem( 0, dataStrategy.findProductById(productId), quantity);
+        lineItems[receiptId].printLineItem();
         
         updateDisplay();
+
     }
     
     public final void completeOrder(int receiptId){

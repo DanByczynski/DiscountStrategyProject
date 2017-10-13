@@ -11,4 +11,33 @@ package discountstrategyproject;
  */
 public class LineItem {
     
+    // ======== Properties ========
+    private final int lineItemId;
+    private final Product product;
+    private String productName;
+    private final int quantity;
+    
+    // ======== Constructor ========
+    public LineItem(int lineItemId, Product product, int quantity) {
+        this.lineItemId = lineItemId;
+        this.product = product;
+        this.quantity = quantity;
+        setProductName(product.getProdName());
+        System.out.println(quantity);
+    }
+    
+    // ======== Methods ========
+    public void printLineItem(){
+        System.out.println(productName + " Quantity: " + quantity);
+    }
+    
+    // ======== Getters and Setters ========
+    
+    public String getProductName() {
+        return productName;
+    }
+
+    public final void setProductName(String productName) {
+        this.productName = productName;
+    }
 }

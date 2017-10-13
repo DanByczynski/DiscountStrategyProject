@@ -26,15 +26,15 @@ public class DiscountStrategyProject {
         
         // ======== Testing ========
         register.beginNewOrder(0, "100");
-        register.addNewProductToPurchase(0);
+        register.addNewProductToPurchase(0, "A101", 2);
         System.out.println("==========");
         register.completeOrder(0);
         
-        System.out.println("========== Order # 2 ========");
-        register.beginNewOrder(1, "200");
-        register.addNewProductToPurchase(1);
-        System.out.println("==========");
-        register.completeOrder(1);
+//        System.out.println("========== Order # 2 ========");
+//        register.beginNewOrder(1, "200");
+//        register.addNewProductToPurchase(1, "a101", 5);
+//        System.out.println("==========");
+//        register.completeOrder(1);
     }
     
 }

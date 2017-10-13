@@ -31,8 +31,8 @@ public class PosRegister {
         receipt[receiptId] = new Receipt(receiptId, displayObject, printObject, customerId, dataStrategy);
     }
     
-    public final void addNewProductToPurchase(int receiptId){
-        receipt[receiptId].addNewProductToPurchase(receiptId);
+    public final void addNewProductToPurchase(int receiptId, String productId, int quantity){
+        receipt[receiptId].addNewProductToPurchase(receiptId, productId, quantity);
     }
     
     public final void completeOrder(int receiptId){

@@ -11,10 +11,9 @@ import java.text.NumberFormat;
  * @author danielbyczynski
  */
 public class CurrencyFormatter implements FormatService{
-   
     @Override
     public String formatDouble(double value) {
-        System.out.println("sup boiiiz");
+        
         // NUMBERFORMATTER converts double value into formatted, rounded Currency String.
         NumberFormat NUMBERFORMATTER = NumberFormat.getCurrencyInstance();
         

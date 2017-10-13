@@ -103,6 +103,5 @@ public class Receipt {
 
     public void setDoubleFormat(FormatService doubleFormat) {
         this.doubleFormat = doubleFormat;
-        System.out.println("sup boiiiz");
     }
 }

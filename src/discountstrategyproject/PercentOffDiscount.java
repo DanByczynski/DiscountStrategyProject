@@ -32,13 +32,6 @@ public final class PercentOffDiscount implements DiscountStrategy {
         return (productUnitCost * quantity) / (1 + discountPercentInput);
     }
     
-    // ======== Round value to two decimal places ========
-//    private String formatDoubleAsCurrencyString(double value) {
-//        return NUMBERFORMATTER.format(value);
-//    }
-    
-    // 
-    
     // ======== Getters and Setters ========
     public void setDiscountPercentInput(double discountPercentInput) {
         this.discountPercentInput = discountPercentInput;

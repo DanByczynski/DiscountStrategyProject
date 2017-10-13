@@ -31,7 +31,6 @@ public class LineItem {
         this.productUnitPrice = product.getUnitCost();
         setProductName(product.getProdName());
         this.productSalePrice = product.getDiscountedAmount(productUnitPrice, quantity);
-        System.out.println(quantity);
     }
     
     // ======== Methods ========
@@ -54,7 +53,6 @@ public class LineItem {
     }
 
     public final void setDoubleFormat(FormatService doubleFormat) {
-        System.out.println("sup boiiiz");
         this.doubleFormat = doubleFormat;
     }
 }

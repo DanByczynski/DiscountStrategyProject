@@ -74,6 +74,5 @@ public class PosRegister {
 
     public void setDoubleFormat(FormatService doubleFormat) {
         this.doubleFormat = doubleFormat;
-        System.out.println("sup boiiiz");
     }
 }

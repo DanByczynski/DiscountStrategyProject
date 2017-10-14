@@ -5,6 +5,9 @@
  */
 package discountstrategyproject;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author danielbyczynski
@@ -22,8 +25,13 @@ public class PrintConsoleLog implements Printer{
         System.out.println("==                                                                            ==");
         System.out.println("==                          N95 W18000 Appleton Ave                           ==");
         System.out.println("==                         Menomonee Falls, WI 53051                          ==");
+        System.out.println("==                             " + getCurrentDateString());
         System.out.println("==                                                                            ==");
-        System.out.println("==                             #" + receiptId + " | " + customerName);
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==   #" + receiptId + "  Customer: " + customerName);
+        
+        System.out.println("==                                                                            ==");
         System.out.println("==                                                                            ==");
     }
     
@@ -34,11 +42,23 @@ public class PrintConsoleLog implements Printer{
 
     @Override
     public void printFooter() {
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                       Thank you for shopping at Kohl's!                    ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
+        System.out.println("==                                                                            ==");
         System.out.println("================================================================================");
         System.out.println("================================================================================");
         System.out.println("");
         System.out.println("");
         System.out.println("");
     }
+    
+    private String getCurrentDateString(){
+        return new SimpleDateFormat("MM/dd/yyyy hh:mma").format(Calendar.getInstance().getTime());
+    }
 
 }
+

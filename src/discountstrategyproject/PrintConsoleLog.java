@@ -18,21 +18,21 @@ public class PrintConsoleLog implements Printer{
     public void printHeader(int receiptId, String customerName) {
         System.out.println("================================================================================");
         System.out.println("================================================================================");
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
+        printBlankLine();
+        printBlankLine();
+        printBlankLine();
         System.out.println("==                          KOHLS DEPARTMENT STORE                            ==");
-        System.out.println("==                                                                            ==");
+        printBlankLine();
         System.out.println("==                          N95 W18000 Appleton Ave                           ==");
         System.out.println("==                         Menomonee Falls, WI 53051                          ==");
         System.out.println("==                             " + getCurrentDateString());
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
+        printBlankLine();
+        printBlankLine();
+        printBlankLine();
         System.out.println("==   #" + receiptId + "  Customer: " + customerName);
         
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
+        printBlankLine();
+        printBlankLine();
     }
     
     @Override
@@ -42,18 +42,22 @@ public class PrintConsoleLog implements Printer{
 
     @Override
     public void printFooter() {
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
+        printBlankLine();
+        printBlankLine();
+        printBlankLine();
         System.out.println("==                       Thank you for shopping at Kohl's!                    ==");
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
-        System.out.println("==                                                                            ==");
+        printBlankLine();
+        printBlankLine();
+        printBlankLine();
         System.out.println("================================================================================");
         System.out.println("================================================================================");
         System.out.println("");
         System.out.println("");
         System.out.println("");
+    }
+    
+    public final void printBlankLine() {
+        System.out.println("==                                                                            ==");
     }
     
     private String getCurrentDateString(){

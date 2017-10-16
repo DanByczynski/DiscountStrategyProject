@@ -52,16 +52,47 @@ public class Receipt {
         lineItems = temporaryLineItemArray;
     }
     
+    // Calculate total of lineItems in Receipt.
+    private final String calculateLineItemTotal(){
+        double unitPriceTotal = 0;
+        double salePriceTotal = 0;
+        int quantity;
+        
+        String newline = System.getProperty("line.separator");
+        
+        for (int i = 0; i < lineItems.length; i++){
+            quantity = lineItems[i].getQuantity();
+            unitPriceTotal += (lineItems[i].getProductUnitPrice() * quantity);
+            salePriceTotal += lineItems[i].getProductSalePrice();
+        }
+        
+        return "Unit Total: " + doubleFormat.formatDouble(unitPriceTotal) + newline + "== Sale Total: " + doubleFormat.formatDouble(salePriceTotal) + newline + "== You saved: " + doubleFormat.formatDouble(unitPriceTotal - salePriceTotal);
+    }
+    
+    private final String calculateSalesTax(){
+        return "";
+    }
+    
     // ==== Generate Final Receipt for Printing ====
     public final void completeOrder(int receiptId){
         
+        // Tell printer object to print receipt header
         printerObject.printHeader(receiptId, customer.getCustomerName());
         
+        // Iterate through lineItems and print them all in order.
         for (int i = 0; i < lineItems.length; i++){
             printerObject.printReceipt(lineItems[i].printLineItem());
         }
+        
+        // Print total for purchase.
+        printerObject.printBlankLine();
+        printerObject.printReceipt(calculateLineItemTotal());
+        
+        // Tell printer object to print footer.
         printerObject.printFooter();
     }
+    
+    
     
     // ==== Update display when new items are entered ====
     private void updateDisplay(){

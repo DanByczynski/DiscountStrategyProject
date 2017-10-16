@@ -17,7 +17,6 @@ public class LineItem {
     private String productName;
     private final int quantity;
     private FormatService doubleFormat;
-
     private final double productUnitPrice;
     private final double productSalePrice;
     
@@ -40,7 +39,7 @@ public class LineItem {
     
     // ======== Getters and Setters ========
     
-    public String getProductName() {
+    public final String getProductName() {
         return productName;
     }
 
@@ -54,5 +53,17 @@ public class LineItem {
 
     public final void setDoubleFormat(FormatService doubleFormat) {
         this.doubleFormat = doubleFormat;
+    }
+    
+    public final double getProductUnitPrice() {
+        return productUnitPrice;
+    }
+
+    public final double getProductSalePrice() {
+        return productSalePrice;
+    }
+    
+    public final int getQuantity() {
+        return quantity;
     }
 }

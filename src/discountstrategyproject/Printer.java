@@ -13,4 +13,5 @@ public interface Printer {
     public abstract void printHeader(final int receiptId, final String customerName);
     public abstract void printReceipt(final String printableString);
     public abstract void printFooter();
+    public abstract void printBlankLine();
 }

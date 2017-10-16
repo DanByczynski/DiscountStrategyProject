@@ -23,12 +23,12 @@ public class DiscountStrategyProject {
         // Configures data storage classes
         ReceiptDataAccessStrategy dataStrategy = new InMemoryDatabase();
         
-        // Configure FormatService for double to currency format
-        FormatService formatDouble = new CurrencyFormatter();
+        // Configure CurrencyFormatService for double to currency format
+        CurrencyFormatService formatDollar = new DollarFormatter();
         
         
         // ======== Instantiate new PosRegister ========
-        PosRegister register = new PosRegister(consolePrint, videoScreen, dataStrategy, formatDouble);
+        PosRegister register = new PosRegister(consolePrint, videoScreen, dataStrategy, formatDollar);
         
         // ======== Testing ========
         register.beginNewOrder(0, "100");

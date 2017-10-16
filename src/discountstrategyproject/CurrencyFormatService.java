@@ -9,6 +9,6 @@ package discountstrategyproject;
  *
  * @author danielbyczynski
  */
-public interface FormatService {
+public interface CurrencyFormatService {
     public abstract String formatDouble(double value);
 }

@@ -17,12 +17,12 @@ public class PosRegister {
     Printer printObject;
     Display displayObject;
     ReceiptDataAccessStrategy dataStrategy;
-    FormatService doubleFormat;
+    CurrencyFormatService doubleFormat;
 
 
     
     // ======== Constructor ========
-    PosRegister(Printer printObject, Display displayObject, ReceiptDataAccessStrategy dataStrategy, FormatService doubleFormat){
+    PosRegister(Printer printObject, Display displayObject, ReceiptDataAccessStrategy dataStrategy, CurrencyFormatService doubleFormat){
         setPrintObject(printObject);
         setDisplayObject(displayObject);
         setDataStrategy(dataStrategy);
@@ -77,11 +77,11 @@ public class PosRegister {
         this.dataStrategy = dataStrategy;
     }
     
-    public FormatService getDoubleFormat() {
+    public CurrencyFormatService getDoubleFormat() {
         return doubleFormat;
     }
 
-    public void setDoubleFormat(FormatService doubleFormat) {
+    public void setDoubleFormat(CurrencyFormatService doubleFormat) {
         this.doubleFormat = doubleFormat;
     }
 }

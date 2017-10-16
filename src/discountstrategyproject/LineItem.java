@@ -16,13 +16,13 @@ public class LineItem {
     private final Product product;
     private String productName;
     private final int quantity;
-    private FormatService doubleFormat;
+    private CurrencyFormatService dollarFormat;
     private final double productUnitPrice;
     private final double productSalePrice;
     
     
     // ======== Constructor ========
-    public LineItem(int lineItemId, Product product, int quantity, FormatService doubleFormat) {
+    public LineItem(int lineItemId, Product product, int quantity, CurrencyFormatService doubleFormat) {
         this.lineItemId = lineItemId;
         this.product = product;
         this.quantity = quantity;
@@ -34,7 +34,7 @@ public class LineItem {
     
     // ======== Methods ========
     public String printLineItem(){
-        return (productName + " | Quantity: " + quantity + "| Unit Price: " + doubleFormat.formatDouble(productUnitPrice) + "| Sale Price: " + doubleFormat.formatDouble(productSalePrice));
+        return (productName + " | Quantity: " + quantity + "| Unit Price: " + dollarFormat.formatDouble(productUnitPrice) + "| Sale Price: " + dollarFormat.formatDouble(productSalePrice));
     }
     
     // ======== Getters and Setters ========
@@ -47,12 +47,12 @@ public class LineItem {
         this.productName = productName;
     }
     
-    public final FormatService getDoubleFormat() {
-        return doubleFormat;
+    public final CurrencyFormatService getDoubleFormat() {
+        return dollarFormat;
     }
 
-    public final void setDoubleFormat(FormatService doubleFormat) {
-        this.doubleFormat = doubleFormat;
+    public final void setDoubleFormat(CurrencyFormatService doubleFormat) {
+        this.dollarFormat = doubleFormat;
     }
     
     public final double getProductUnitPrice() {

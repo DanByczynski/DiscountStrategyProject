@@ -17,7 +17,7 @@ public class Receipt {
     private Printer printerObject;
     private Customer customer;
     private ReceiptDataAccessStrategy dataStrategy;
-    private FormatService doubleFormat;
+    private CurrencyFormatService doubleFormat;
     
     private LineItem[] lineItems;
     private String productId;
@@ -26,7 +26,7 @@ public class Receipt {
     
     // ======== Constructor ========
 
-    public Receipt(int receiptId, Display displayObject, Printer printerObject, String customerId, ReceiptDataAccessStrategy dataStrategy, FormatService doubleFormat) {
+    public Receipt(int receiptId, Display displayObject, Printer printerObject, String customerId, ReceiptDataAccessStrategy dataStrategy, CurrencyFormatService doubleFormat) {
         setReceiptId(receiptId);
         setDisplayObject(displayObject);
         setPrinterObject(printerObject);
@@ -140,11 +140,11 @@ public class Receipt {
         this.dataStrategy = dataStrategy;
     }
     
-    public FormatService getDoubleFormat() {
+    public CurrencyFormatService getDoubleFormat() {
         return doubleFormat;
     }
 
-    public final void setDoubleFormat(FormatService doubleFormat) {
+    public final void setDoubleFormat(CurrencyFormatService doubleFormat) {
         this.doubleFormat = doubleFormat;
     }
 }

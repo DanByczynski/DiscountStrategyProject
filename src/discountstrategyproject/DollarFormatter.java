@@ -10,7 +10,7 @@ import java.text.NumberFormat;
  *
  * @author danielbyczynski
  */
-public class CurrencyFormatter implements FormatService{
+public class DollarFormatter implements CurrencyFormatService{
     @Override
     public String formatDouble(double value) {
         

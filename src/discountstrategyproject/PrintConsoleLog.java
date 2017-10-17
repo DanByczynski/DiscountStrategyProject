@@ -16,8 +16,8 @@ public class PrintConsoleLog implements Printer{
 
     @Override
     public void printHeader(int receiptId, String customerName) {
-        System.out.println("================================================================================");
-        System.out.println("================================================================================");
+        printSolidLine();
+        printSolidLine();
         printBlankLine();
         printBlankLine();
         printBlankLine();
@@ -49,15 +49,23 @@ public class PrintConsoleLog implements Printer{
         printBlankLine();
         printBlankLine();
         printBlankLine();
-        System.out.println("================================================================================");
-        System.out.println("================================================================================");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        printSolidLine();
+        printSolidLine();
+        printSpace();
+        printSpace();
+        printSpace();
     }
     
     public final void printBlankLine() {
         System.out.println("==                                                                            ==");
+    }
+    
+    public final void printSolidLine() {
+        System.out.println("================================================================================");
+    }
+    
+    public final void printSpace() {
+        System.out.println("");
     }
     
     private String getCurrentDateString(){

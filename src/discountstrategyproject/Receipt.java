@@ -17,7 +17,7 @@ public class Receipt {
     private Printer printerObject;
     private Customer customer;
     private ReceiptDataAccessStrategy dataStrategy;
-    private CurrencyFormatService doubleFormat;
+    private CurrencyFormatService dollarFormat;
     
     private LineItem[] lineItems;
     private String productId;
@@ -40,7 +40,7 @@ public class Receipt {
     // ======== Methods ========
 
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity) {
-        addNewLineItemToArray(new LineItem(0, dataStrategy.findProductById(productId), quantity, doubleFormat));
+        addNewLineItemToArray(new LineItem(0, dataStrategy.findProductById(productId), quantity, dollarFormat));
         updateDisplay();
     }
     
@@ -60,13 +60,13 @@ public class Receipt {
         
         String newline = System.getProperty("line.separator");
         
-        for (int i = 0; i < lineItems.length; i++){
-            quantity = lineItems[i].getQuantity();
-            unitPriceTotal += (lineItems[i].getProductUnitPrice() * quantity);
-            salePriceTotal += lineItems[i].getProductSalePrice();
+        for (LineItem lineItem : lineItems) {
+            quantity = lineItem.getQuantity();
+            unitPriceTotal += (lineItem.getProductUnitPrice() * quantity);
+            salePriceTotal += lineItem.getProductSalePrice();
         }
         
-        return "Unit Total: " + doubleFormat.formatDouble(unitPriceTotal) + newline + "== Sale Total: " + doubleFormat.formatDouble(salePriceTotal) + newline + "== You saved: " + doubleFormat.formatDouble(unitPriceTotal - salePriceTotal);
+        return "Unit Total: " + dollarFormat.formatDouble(unitPriceTotal) + newline + "== Sale Total: " + dollarFormat.formatDouble(salePriceTotal) + newline + "== You saved: " + dollarFormat.formatDouble(unitPriceTotal - salePriceTotal);
     }
     
     private final String calculateSalesTax(){
@@ -141,10 +141,10 @@ public class Receipt {
     }
     
     public CurrencyFormatService getDoubleFormat() {
-        return doubleFormat;
+        return dollarFormat;
     }
 
     public final void setDoubleFormat(CurrencyFormatService doubleFormat) {
-        this.doubleFormat = doubleFormat;
+        this.dollarFormat = doubleFormat;
     }
 }

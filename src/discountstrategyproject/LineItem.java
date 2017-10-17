@@ -22,11 +22,11 @@ public class LineItem {
     
     
     // ======== Constructor ========
-    public LineItem(int lineItemId, Product product, int quantity, CurrencyFormatService doubleFormat) {
+    public LineItem(int lineItemId, Product product, int quantity, CurrencyFormatService dollarFormat) {
         this.lineItemId = lineItemId;
         this.product = product;
         this.quantity = quantity;
-        setDoubleFormat(doubleFormat);
+        setCurrencyFormat(dollarFormat);
         this.productUnitPrice = product.getUnitCost();
         setProductName(product.getProdName());
         this.productSalePrice = product.getDiscountedAmount(productUnitPrice, quantity);
@@ -47,12 +47,12 @@ public class LineItem {
         this.productName = productName;
     }
     
-    public final CurrencyFormatService getDoubleFormat() {
+    public final CurrencyFormatService getCurrencyFormat() {
         return dollarFormat;
     }
 
-    public final void setDoubleFormat(CurrencyFormatService doubleFormat) {
-        this.dollarFormat = doubleFormat;
+    public final void setCurrencyFormat(CurrencyFormatService dollarFormat) {
+        this.dollarFormat = dollarFormat;
     }
     
     public final double getProductUnitPrice() {

@@ -11,9 +11,9 @@ package discountstrategyproject;
  */
 public class PosRegister {
     
+    ValidationService validate = new ValidationService();
     // ======== Properties  ========
     Receipt[] receipts;
-
     Printer printObject;
     Display displayObject;
     ReceiptDataAccessStrategy dataStrategy;
@@ -32,15 +32,24 @@ public class PosRegister {
     
     // ======== Methods ========
     public final void beginNewOrder(int receiptId, String customerId){
+        validate.checkNotNull(receiptId);
+        validate.checkNotNull(customerId);
+        
         addNewReceiptToReceiptArray(new Receipt(receiptId, displayObject, printObject, customerId, dataStrategy, doubleFormat));
     }
     
     
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity){
+        validate.checkNotNull(receiptId);
+        validate.checkNotNull(productId);
+        validate.checkNotNull(quantity);
+        
         receipts[receiptId].addNewProductToPurchase(receiptId, productId, quantity);
     }
     
     private final void addNewReceiptToReceiptArray(final Receipt receipt){
+        validate.checkNotNull(receipt);
+        
         Receipt[] temporaryReceiptArray = new Receipt[receipts.length + 1];
         System.arraycopy(receipts, 0, temporaryReceiptArray, 0, receipts.length);
         temporaryReceiptArray[receipts.length] = receipt;
@@ -48,6 +57,7 @@ public class PosRegister {
     }
     
     public final void completeOrder(int receiptId){
+        validate.checkNotNull(receiptId);
         receipts[receiptId].completeOrder(receiptId);
     }
     
@@ -58,6 +68,7 @@ public class PosRegister {
     }
 
     public final void setPrintObject(Printer printObject) {
+        validate.checkNotNull(printObject);
         this.printObject = printObject;
     }
 
@@ -66,6 +77,7 @@ public class PosRegister {
     }
 
     public final void setDisplayObject(Display displayObject) {
+        validate.checkNotNull(displayObject);
         this.displayObject = displayObject;
     }
 
@@ -74,6 +86,7 @@ public class PosRegister {
     }
 
     private void setDataStrategy(ReceiptDataAccessStrategy dataStrategy) {
+        validate.checkNotNull(dataStrategy);
         this.dataStrategy = dataStrategy;
     }
     
@@ -82,6 +95,7 @@ public class PosRegister {
     }
 
     public void setDoubleFormat(CurrencyFormatService doubleFormat) {
+        validate.checkNotNull(doubleFormat);
         this.doubleFormat = doubleFormat;
     }
 }

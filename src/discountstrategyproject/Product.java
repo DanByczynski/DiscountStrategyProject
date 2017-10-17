@@ -11,35 +11,58 @@ package discountstrategyproject;
  */
 public class Product {
     
+    ValidationService validate = new ValidationService();
+
     // ======== Property Declarations ========
-    private final String prodId;
-    private final String prodName;
-    private final double unitCost;
-    private final DiscountStrategy discount;
+    
+    private String prodId;
+    private String prodName;
+    private double unitCost;
+    private DiscountStrategy discount;
     
     // ======== Constructor ========
     public Product(String prodId, String prodName, double unitCost, DiscountStrategy discount) {
-        this.prodId = prodId;
-        this.prodName = prodName;
-        this.unitCost = unitCost;
-        this.discount = discount;
+        setProdId(prodId);
+        setProdName(prodName);
+        setUnitCost(unitCost);
+        setDiscount(discount);
     }
     
     // ======== Property Value Getters ========
-    public String getProdId() {
+    public final String getProdId() {
         return prodId;
     }
 
-    public String getProdName() {
+    public final String getProdName() {
         return prodName;
     }
 
-    public double getUnitCost() {
+    public final double getUnitCost() {
         return unitCost;
     }
 
-    public double getDiscountedAmount(double productUnitPrice, int quantity) {
+    public final double getDiscountedAmount(double productUnitPrice, int quantity) {
         return discount.getDiscountAmount(productUnitPrice, quantity);
+    }
+    
+    public final void setProdId(String prodId) {
+        validate.checkNotNull(prodId);
+        this.prodId = prodId;
+    }
+
+    public final void setProdName(String prodName) {
+        validate.checkNotNull(prodName);
+        this.prodName = prodName;
+    }
+
+    public final void setUnitCost(double unitCost) {
+        validate.checkNotNull(unitCost);
+        this.unitCost = unitCost;
+    }
+    
+    public final void setDiscount(DiscountStrategy discount) {
+        validate.checkNotNull(discount);
+        this.discount = discount;
     }
     
 }

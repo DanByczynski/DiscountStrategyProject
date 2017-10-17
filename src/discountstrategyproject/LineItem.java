@@ -11,25 +11,30 @@ package discountstrategyproject;
  */
 public class LineItem {
     
+    ValidationService validate = new ValidationService();
+
+
     // ======== Properties ========
-    private final int lineItemId;
-    private final Product product;
+    public void setDollarFormat(CurrencyFormatService dollarFormat) {
+        this.dollarFormat = dollarFormat;
+    }
+    private int lineItemId;
+    private Product product;
     private String productName;
     private int quantity;
     private CurrencyFormatService dollarFormat;
-    private final double productUnitPrice;
-    private final double productSalePrice;
+    private double productUnitPrice;
+    private double productSalePrice;
     
     
     // ======== Constructor ========
     public LineItem(int lineItemId, Product product, int quantity, CurrencyFormatService dollarFormat) {
-        this.lineItemId = lineItemId;
-        this.product = product;
-        this.quantity = quantity;
+        
+        setLineItemId(lineItemId);
+        setProduct(product);
+        setQuantity(quantity);
         setCurrencyFormat(dollarFormat);
-        this.productUnitPrice = product.getUnitCost();
         setProductName(product.getProdName());
-        this.productSalePrice = product.getDiscountedAmount(productUnitPrice, quantity);
     }
     
     // ======== Methods ========
@@ -44,6 +49,7 @@ public class LineItem {
     }
 
     public final void setProductName(String productName) {
+        validate.checkNotNull(productName);
         this.productName = productName;
     }
     
@@ -52,6 +58,7 @@ public class LineItem {
     }
 
     public final void setCurrencyFormat(CurrencyFormatService dollarFormat) {
+        validate.checkNotNull(dollarFormat);
         this.dollarFormat = dollarFormat;
     }
     
@@ -67,7 +74,30 @@ public class LineItem {
         return quantity;
     }
     
-    public void setQuantity(int quantity) {
+    public final void setQuantity(int quantity) {
+        validate.checkNotNull(quantity);
         this.quantity = quantity;
+    }
+    
+    
+    public final int getLineItemId() {
+        return lineItemId;
+    }
+
+    public final void setLineItemId(int lineItemId) {
+        validate.checkNotNull(lineItemId);
+        this.lineItemId = lineItemId;    }
+
+    public final Product getProduct() {
+        return product;
+    }
+
+    public final void setProduct(Product product) {
+        validate.checkNotNull(product);
+        this.product = product;
+    }
+
+    public final CurrencyFormatService getDollarFormat() {
+        return dollarFormat;
     }
 }

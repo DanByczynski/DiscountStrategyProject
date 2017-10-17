@@ -11,12 +11,17 @@ package discountstrategyproject;
  */
 public class XForThePriceOfYDiscount implements DiscountStrategy {
 
+    ValidationService validate = new ValidationService();
+    
     // ======== Properties ========
     private int numberRequiredForFreeProduct;
     private int numberOfFreeProducts;
     private int calculatedNumberOfFreeProducts;
     
     public XForThePriceOfYDiscount(int numberRequiredForFreeProduct, int numberOfFreeProducts) {
+        validate.checkNotNull(numberRequiredForFreeProduct);
+        validate.checkNotNull(numberOfFreeProducts);
+        
         setNumberRequiredForFreeProduct(numberRequiredForFreeProduct);
         setNumberOfFreeProducts(numberOfFreeProducts);
     }
@@ -24,10 +29,16 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
     // ======== Logic Methods ========
     @Override
     public final double getDiscountAmount(double productUnitCost, int quantity) {
+        validate.checkNotNull(productUnitCost);
+        validate.checkNotNull(quantity);
+        
         return calculatedDiscountAmount(productUnitCost, quantity);
     }
 
     private double calculatedDiscountAmount(double productUnitCost, int quantity) {
+        validate.checkNotNull(productUnitCost);
+        validate.checkNotNull(quantity);
+        
         double discountedTotal = productUnitCost;
         
         // ==== Check if Customer purchased enough product to qualify for discount. ====
@@ -49,6 +60,8 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
     }
     
     private int calculateNumberOfFreeItems(int quantity){
+        validate.checkNotNull(quantity);
+        
         int i = 0;
         for(int qty = quantity; qty >= numberRequiredForFreeProduct; qty -= numberRequiredForFreeProduct) {
             i++;
@@ -58,6 +71,9 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
     }
     
     private double calculateDiscountedTotal(double productUnitCost, int quantity){
+        validate.checkNotNull(productUnitCost);
+        validate.checkNotNull(quantity);
+        
         return productUnitCost * (quantity - calculatedNumberOfFreeProducts);
     }
     
@@ -68,6 +84,8 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
     }
 
     public final void setNumberRequiredForFreeProduct(int numberRequiredForFreeProduct) {
+        validate.checkNotNull(numberRequiredForFreeProduct);
+        
         this.numberRequiredForFreeProduct = numberRequiredForFreeProduct;
     }
 
@@ -76,6 +94,7 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
     }
 
     public final void setNumberOfFreeProducts(int numberOfFreeProducts) {
+        validate.checkNotNull(numberOfFreeProducts);
         this.numberOfFreeProducts = numberOfFreeProducts;
     }
     

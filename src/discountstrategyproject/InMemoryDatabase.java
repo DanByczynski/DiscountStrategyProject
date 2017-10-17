@@ -25,8 +25,8 @@ public class InMemoryDatabase implements ReceiptDataAccessStrategy {
         new Product("A101", "MLB Brewer's Hat ", 19.95, new PercentOffDiscount(0.15)),
         new Product("B202", "Men's Dress Shirt", 35.50, new PercentOffDiscount(0.15)),
         new Product("C303", "Women's Socks    ", 9.50, new NoDiscount()),
-        new Product("D404", "Men's Sandals    ", 15.95, new NoDiscount()),
-        new Product("E505", "Candy Bar        ", 1.35, new XForThePriceOfYDiscount(5, 1)),
+        new Product("D404", "Men's Sandals    ", 15.95, new XForThePriceOfYDiscount(2, 1)),
+        new Product("E505", "Candy Bar        ", 0.35, new XForThePriceOfYDiscount(5, 1)),
     };
     
     // ======== Method overrides for ReceiptDataAccessStrategy interface ========

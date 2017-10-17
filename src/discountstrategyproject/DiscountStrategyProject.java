@@ -42,7 +42,7 @@ public class DiscountStrategyProject {
         register.beginNewOrder(1, "200");
         register.addNewProductToPurchase(1, "A101", 5);
         register.addNewProductToPurchase(1, "C303", 4);
-        register.addNewProductToPurchase(1, "D404", 1);
+        register.addNewProductToPurchase(1, "D404", 2);
         register.addNewProductToPurchase(1, "E505", 25);
         register.completeOrder(1);
         

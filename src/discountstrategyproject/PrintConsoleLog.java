@@ -13,9 +13,13 @@ import java.util.Calendar;
  * @author danielbyczynski
  */
 public class PrintConsoleLog implements Printer{
+    ValidationService validate = new ValidationService();
 
     @Override
     public void printHeader(int receiptId, String customerName) {
+        validate.checkNotNull(receiptId);
+        validate.checkNotNull(customerName);
+        
         printSolidLine();
         printSolidLine();
         printBlankLine();
@@ -42,6 +46,7 @@ public class PrintConsoleLog implements Printer{
     
     @Override
     public final void printReceipt(String printableString) {
+        validate.checkNotNull(printableString);
         System.out.println("== " + printableString);
     }
 

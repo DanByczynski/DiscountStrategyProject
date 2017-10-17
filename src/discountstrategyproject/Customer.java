@@ -14,6 +14,7 @@ public class Customer {
     // ======== Properties ========
     private String customerId;
     private String customerName;
+    ValidationService validate = new ValidationService();
     
     // ======== Constructor ========
     public Customer(String customerId, String customerName) {
@@ -27,6 +28,7 @@ public class Customer {
     }
 
     private void setCustomerId(String customerId) {
+        validate.checkNotNull(customerId);
         this.customerId = customerId;
     }
 
@@ -35,6 +37,7 @@ public class Customer {
     }
     
     private void setCustomerName(String customerName) {
+        validate.checkNotNull(customerName);
         this.customerName = customerName;
     }
     

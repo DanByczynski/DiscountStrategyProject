@@ -11,8 +11,12 @@ package discountstrategyproject;
  */
 public class NoDiscount implements DiscountStrategy {
 
+    ValidationService validate = new ValidationService();
+    
     @Override
     public double getDiscountAmount(double productUnitCost, int quantity) {
+        validate.checkNotNull(productUnitCost);
+        validate.checkNotNull(quantity);
         return productUnitCost;
     }
     

@@ -11,6 +11,8 @@ package discountstrategyproject;
  */
 public class Receipt {
     
+    ValidationService validate = new ValidationService();
+    
     // ======== Properties ========
     private int receiptId;
     private Display displayObject;
@@ -40,12 +42,18 @@ public class Receipt {
     // ======== Methods ========
 
     public final void addNewProductToPurchase(int receiptId, String productId, int quantity) {
+        validate.checkNotNull(receiptId);
+        validate.checkNotNull(productId);
+        validate.checkNotNull(quantity);
+        
         addNewLineItemToArray(new LineItem(0, dataStrategy.findProductById(productId), quantity, dollarFormat));
         updateDisplay();
     }
     
     // ==== Add new lineItem to lineItems array by copying and re-initializing ====
     private final void addNewLineItemToArray(final LineItem lineItem) {
+        validate.checkNotNull(lineItem);
+        
         LineItem[] temporaryLineItemArray = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, temporaryLineItemArray, 0, lineItems.length);
         temporaryLineItemArray[lineItems.length] = lineItem;
@@ -75,6 +83,7 @@ public class Receipt {
     
     // ==== Generate Final Receipt for Printing ====
     public final void completeOrder(int receiptId){
+        validate.checkNotNull(receiptId);
         
         // Tell printer object to print receipt header
         printerObject.printHeader(receiptId, customer.getCustomerName());
@@ -108,6 +117,7 @@ public class Receipt {
     }
 
     public final void setReceiptId(int receiptId) {
+        validate.checkNotNull(receiptId);
         this.receiptId = receiptId;
     }
 
@@ -116,6 +126,7 @@ public class Receipt {
     }
 
     public final void setDisplayObject(Display displayObject) {
+        validate.checkNotNull(displayObject);
         this.displayObject = displayObject;
     }
 
@@ -124,6 +135,7 @@ public class Receipt {
     }
 
     public final void setPrinterObject(Printer printerObject) {
+        validate.checkNotNull(printerObject);
         this.printerObject = printerObject;
     }
     
@@ -132,6 +144,7 @@ public class Receipt {
     }
 
     public final void setCustomer(Customer customer) {
+        validate.checkNotNull(customer);
         this.customer = customer;
     }
     
@@ -140,6 +153,7 @@ public class Receipt {
     }
 
     public final void setDataStrategy(ReceiptDataAccessStrategy dataStrategy) {
+        validate.checkNotNull(dataStrategy);
         this.dataStrategy = dataStrategy;
     }
     
@@ -148,6 +162,7 @@ public class Receipt {
     }
 
     public final void setDoubleFormat(CurrencyFormatService doubleFormat) {
+        validate.checkNotNull(doubleFormat);
         this.dollarFormat = doubleFormat;
     }
 }

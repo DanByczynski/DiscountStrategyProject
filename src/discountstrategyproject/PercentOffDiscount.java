@@ -11,6 +11,8 @@ package discountstrategyproject;
  */
 public final class PercentOffDiscount implements DiscountStrategy {
     
+    ValidationService validate = new ValidationService();
+    
     // ======== Properties ========
     private double discountPercentInput = 0;
 
@@ -24,16 +26,22 @@ public final class PercentOffDiscount implements DiscountStrategy {
     // ======== Interface Method Overrides ========
     @Override
     public double getDiscountAmount(double productUnitCost, int quantity) {
+        validate.checkNotNull(productUnitCost);
+        validate.checkNotNull(quantity);
         
         return calculatedDiscountAmount(productUnitCost, quantity);
     }
     
     private double calculatedDiscountAmount(double productUnitCost, int quantity){
+        validate.checkNotNull(productUnitCost);
+        validate.checkNotNull(quantity);
+        
         return ((productUnitCost * quantity) / (1 + discountPercentInput)/quantity);
     }
     
     // ======== Getters and Setters ========
     public void setDiscountPercentInput(double discountPercentInput) {
+        validate.checkNotNull(discountPercentInput);
         this.discountPercentInput = discountPercentInput;
     }
     

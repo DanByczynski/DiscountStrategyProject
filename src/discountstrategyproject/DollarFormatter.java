@@ -13,6 +13,8 @@ import java.text.NumberFormat;
 public class DollarFormatter implements CurrencyFormatService{
     @Override
     public String formatDouble(double value) {
+        ValidationService validate = new ValidationService();
+        validate.checkNotNull(value);
         
         // NUMBERFORMATTER converts double value into formatted, rounded Currency String.
         NumberFormat NUMBERFORMATTER = NumberFormat.getCurrencyInstance();

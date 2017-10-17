@@ -13,11 +13,8 @@ public class LineItem {
     
     ValidationService validate = new ValidationService();
 
-
     // ======== Properties ========
-    public void setDollarFormat(CurrencyFormatService dollarFormat) {
-        this.dollarFormat = dollarFormat;
-    }
+    
     private int lineItemId;
     private Product product;
     private String productName;
@@ -33,8 +30,10 @@ public class LineItem {
         setLineItemId(lineItemId);
         setProduct(product);
         setQuantity(quantity);
-        setCurrencyFormat(dollarFormat);
+        setDollarFormat(dollarFormat);
         setProductName(product.getProdName());
+        setProductUnitPrice();
+        setProductSalePrice();
     }
     
     // ======== Methods ========
@@ -99,5 +98,18 @@ public class LineItem {
 
     public final CurrencyFormatService getDollarFormat() {
         return dollarFormat;
+    }
+    
+    public final void setDollarFormat(CurrencyFormatService dollarFormat) {
+        validate.checkNotNull(dollarFormat);
+        this.dollarFormat = dollarFormat;
+    }
+    
+    public final void setProductUnitPrice() {
+        this.productUnitPrice = product.getUnitCost();
+    }
+
+    public final void setProductSalePrice() {
+        this.productSalePrice = product.getDiscountedAmount(productUnitPrice, quantity);
     }
 }

@@ -22,11 +22,11 @@ public class InMemoryDatabase implements ReceiptDataAccessStrategy {
     
     // ======== Create array of Product objects ========
     private final Product[] products = {
-        new Product("A101", "MLB Brewer's Hat  ", 19.95, new PercentOffDiscount(0.15)),
-        new Product("B202", "Men's Dress Shirt ", 35.50, new PercentOffDiscount(0.15)),
-        new Product("C303", "Women's Socks     ", 9.50, new NoDiscount()),
-        new Product("C303", "Men's Sandals     ", 15.95, new NoDiscount()),
-        new Product("C303", "Candy Bar         ", 1.35, new BuyXGetYFreeDiscount(5, 1)),
+        new Product("A101", "MLB Brewer's Hat ", 19.95, new PercentOffDiscount(0.15)),
+        new Product("B202", "Men's Dress Shirt", 35.50, new PercentOffDiscount(0.15)),
+        new Product("C303", "Women's Socks    ", 9.50, new NoDiscount()),
+        new Product("D404", "Men's Sandals    ", 15.95, new NoDiscount()),
+        new Product("E505", "Candy Bar        ", 1.35, new XForThePriceOfYDiscount(5, 1)),
     };
     
     // ======== Method overrides for ReceiptDataAccessStrategy interface ========

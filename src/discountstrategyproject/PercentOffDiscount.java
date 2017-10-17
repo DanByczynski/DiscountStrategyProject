@@ -29,7 +29,7 @@ public final class PercentOffDiscount implements DiscountStrategy {
     }
     
     private double calculatedDiscountAmount(double productUnitCost, int quantity){
-        return (productUnitCost * quantity) / (1 + discountPercentInput);
+        return ((productUnitCost * quantity) / (1 + discountPercentInput)/quantity);
     }
     
     // ======== Getters and Setters ========

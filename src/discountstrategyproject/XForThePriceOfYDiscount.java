@@ -9,13 +9,14 @@ package discountstrategyproject;
  *
  * @author danielbyczynski
  */
-public class BuyXGetYFreeDiscount implements DiscountStrategy {
+public class XForThePriceOfYDiscount implements DiscountStrategy {
 
     // ======== Properties ========
     private int numberRequiredForFreeProduct;
     private int numberOfFreeProducts;
+    private int calculatedNumberOfFreeProducts;
     
-    public BuyXGetYFreeDiscount(int numberRequiredForFreeProduct, int numberOfFreeProducts) {
+    public XForThePriceOfYDiscount(int numberRequiredForFreeProduct, int numberOfFreeProducts) {
         setNumberRequiredForFreeProduct(numberRequiredForFreeProduct);
         setNumberOfFreeProducts(numberOfFreeProducts);
     }
@@ -29,11 +30,37 @@ public class BuyXGetYFreeDiscount implements DiscountStrategy {
     private double calculatedDiscountAmount(double productUnitCost, int quantity) {
         double discountedTotal = productUnitCost;
         
+        // ==== Check if Customer purchased enough product to qualify for discount. ====
         if (quantity >= numberRequiredForFreeProduct){
-            discountedTotal = productUnitCost * (quantity - numberOfFreeProducts);
+            
+            // ==== Calculate total number of free items ====
+            calculatedNumberOfFreeProducts = calculateNumberOfFreeItems(quantity);
+            
+            // ==== Calculate the discounted total purchase price for the customer ====
+            discountedTotal = calculateDiscountedTotal(productUnitCost, quantity);
+            System.out.println("DISCOUNTED TOTAL: " + discountedTotal);
+            
+        } else {
+            // ==== No discount ====
+            discountedTotal = productUnitCost * quantity;
+            System.out.println("DISCOUNTED TOTAL: " + discountedTotal);
         }
         
+        // ==== return the discounted total divided by the quantity purchased ====
         return discountedTotal / quantity;
+    }
+    
+    private int calculateNumberOfFreeItems(int quantity){
+        int i = 0;
+        for(int qty = quantity; qty >= numberRequiredForFreeProduct; qty -= numberRequiredForFreeProduct) {
+            i++;
+        }
+        
+        return i * numberOfFreeProducts;
+    }
+    
+    private double calculateDiscountedTotal(double productUnitCost, int quantity){
+        return productUnitCost * (quantity - calculatedNumberOfFreeProducts);
     }
     
     // ======== Getters and Setters ========

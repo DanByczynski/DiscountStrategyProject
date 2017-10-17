@@ -15,7 +15,7 @@ public class LineItem {
     private final int lineItemId;
     private final Product product;
     private String productName;
-    private final int quantity;
+    private int quantity;
     private CurrencyFormatService dollarFormat;
     private final double productUnitPrice;
     private final double productSalePrice;
@@ -34,7 +34,7 @@ public class LineItem {
     
     // ======== Methods ========
     public String printLineItem(){
-        return (productName + " | Quantity: " + quantity + "| Unit Price: " + dollarFormat.formatDouble(productUnitPrice) + "| Sale Price: " + dollarFormat.formatDouble(productSalePrice));
+        return (productName + " | " + quantity + "     " + dollarFormat.formatDouble(productUnitPrice) +  "   " + dollarFormat.formatDouble(productSalePrice) + "   " + dollarFormat.formatDouble(productUnitPrice * quantity) + "   " + dollarFormat.formatDouble(productSalePrice * quantity));
     }
     
     // ======== Getters and Setters ========
@@ -65,5 +65,9 @@ public class LineItem {
     
     public final int getQuantity() {
         return quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

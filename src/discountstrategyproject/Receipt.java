@@ -79,6 +79,9 @@ public class Receipt {
         // Tell printer object to print receipt header
         printerObject.printHeader(receiptId, customer.getCustomerName());
         
+        // Tell printer object to print LineItems table headers
+        printerObject.printLineHeaders();
+        
         // Iterate through lineItems and print them all in order.
         for (int i = 0; i < lineItems.length; i++){
             printerObject.printReceipt(lineItems[i].printLineItem());

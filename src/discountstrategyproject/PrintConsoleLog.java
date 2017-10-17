@@ -36,6 +36,11 @@ public class PrintConsoleLog implements Printer{
     }
     
     @Override
+    public void printLineHeaders(){
+        System.out.println("== Product Name        Qty   Price   Sale    Total    Sale Total              ==");
+    }
+    
+    @Override
     public final void printReceipt(String printableString) {
         System.out.println("== " + printableString);
     }

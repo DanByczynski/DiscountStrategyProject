@@ -43,14 +43,14 @@ public class DiscountStrategyProject {
         register.addNewProductToPurchase(1, "A101", 5);
         register.addNewProductToPurchase(1, "C303", 4);
         register.addNewProductToPurchase(1, "D404", 1);
-        register.addNewProductToPurchase(1, "E505", 2500);
+        register.addNewProductToPurchase(1, "E505", 25);
         register.completeOrder(1);
         
         System.out.println("========== Order # 3 ========");
         register.beginNewOrder(2, "300");
         register.addNewProductToPurchase(2, "A101", 5);
         register.addNewProductToPurchase(2, "C303", 4);
-        register.addNewProductToPurchase(2, "E505", 9);
+        register.addNewProductToPurchase(2, "E505", 5);
         register.completeOrder(2);
         
     }

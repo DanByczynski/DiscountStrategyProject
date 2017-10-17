@@ -38,12 +38,10 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
             
             // ==== Calculate the discounted total purchase price for the customer ====
             discountedTotal = calculateDiscountedTotal(productUnitCost, quantity);
-            System.out.println("DISCOUNTED TOTAL: " + discountedTotal);
             
         } else {
             // ==== No discount ====
             discountedTotal = productUnitCost * quantity;
-            System.out.println("DISCOUNTED TOTAL: " + discountedTotal);
         }
         
         // ==== return the discounted total divided by the quantity purchased ====

@@ -10,10 +10,9 @@ package discountstrategyproject;
  * @author danielbyczynski
  */
 public class ValidationService {
-    public final void checkNotNull(Object object){
+    public final void checkNotNull(Object object) throws IllegalArgumentException {
         if (object == null){
             throw new IllegalArgumentException("VALUE CANNOT BE NULL");
         }
     }
-    
 }

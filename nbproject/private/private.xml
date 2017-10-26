@@ -3,23 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/ReceiptDataAccessStrategy.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/PercentOffDiscount.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/DiscountStrategy.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/Customer.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/VideoScreenDisplay.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/Printer.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/PrintConsoleLog.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/CurrencyFormatter.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/Receipt.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/DiscountStrategyProject.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/LineItem.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/Product.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/PosRegister.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/NoDiscount.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/FormatService.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/Display.java</file>
-            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/src/discountstrategyproject/InMemoryDatabase.java</file>
+            <file>file:/Users/danielbyczynski/Documents/WCTC%20Fall%202017/Advanced%20Java%20Programming/IndependentResearch/DiscountStrategyProject/test/test.java</file>
         </group>
     </open-files>
 </project-private>

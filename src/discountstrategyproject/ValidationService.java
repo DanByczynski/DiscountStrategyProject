@@ -15,4 +15,10 @@ public class ValidationService {
             throw new IllegalArgumentException("VALUE CANNOT BE NULL");
         }
     }
+    
+    public final void checkValidDiscount(double input) throws IllegalArgumentException {
+        if (input <= 0){
+            throw new IllegalArgumentException("VALUE IS NOT A VALID DISCOUNT");
+        }
+    }
 }

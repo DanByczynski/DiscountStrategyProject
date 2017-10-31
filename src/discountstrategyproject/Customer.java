@@ -23,20 +23,20 @@ public class Customer {
     }
     
     // ======== Getters and Setters ========
-    public String getCustomerId() {
+    public final String getCustomerId() {
         return customerId;
     }
 
-    private void setCustomerId(String customerId) {
+    private final void setCustomerId(String customerId) {
         validate.checkNotNull(customerId);
         this.customerId = customerId;
     }
 
-    public String getCustomerName() {
+    public final String getCustomerName() {
         return customerName;
     }
     
-    private void setCustomerName(String customerName) {
+    private final void setCustomerName(String customerName) {
         validate.checkNotNull(customerName);
         this.customerName = customerName;
     }

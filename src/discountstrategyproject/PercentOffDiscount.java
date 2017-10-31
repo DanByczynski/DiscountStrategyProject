@@ -36,12 +36,13 @@ public final class PercentOffDiscount implements DiscountStrategy {
         validate.checkNotNull(productUnitCost);
         validate.checkNotNull(quantity);
         
-        return ((productUnitCost * quantity) / (1 + discountPercentInput)/quantity);
+        return ((productUnitCost * quantity) - (productUnitCost * quantity * discountPercentInput));
     }
     
     // ======== Getters and Setters ========
     public void setDiscountPercentInput(double discountPercentInput) {
         validate.checkNotNull(discountPercentInput);
+        validate.checkValidDiscount(discountPercentInput);
         this.discountPercentInput = discountPercentInput;
     }
     

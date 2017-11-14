@@ -5,6 +5,8 @@
  */
 package discountstrategyproject;
 
+import java.util.Objects;
+
 /**
  *
  * @author danielbyczynski
@@ -41,4 +43,42 @@ public class Customer {
         this.customerName = customerName;
     }
     
+    // ======== HashCode(), Equals(), and toString() ========
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 13 * hash + Objects.hashCode(this.customerId);
+        hash = 13 * hash + Objects.hashCode(this.customerName);
+        hash = 13 * hash + Objects.hashCode(this.validate);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Customer other = (Customer) obj;
+        if (!Objects.equals(this.customerId, other.customerId)) {
+            return false;
+        }
+        if (!Objects.equals(this.customerName, other.customerName)) {
+            return false;
+        }
+        if (!Objects.equals(this.validate, other.validate)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" + "customerId=" + customerId + ", customerName=" + customerName + ", validate=" + validate + '}';
+    }
 }

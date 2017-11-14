@@ -5,6 +5,9 @@
  */
 package discountstrategyproject;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  *
  * @author danielbyczynski
@@ -164,5 +167,69 @@ public class Receipt {
     public final void setDoubleFormat(CurrencyFormatService doubleFormat) {
         validate.checkNotNull(doubleFormat);
         this.dollarFormat = doubleFormat;
+    }
+    
+    // ======== HashCode(), Equals(), and toString() ========
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.validate);
+        hash = 53 * hash + this.receiptId;
+        hash = 53 * hash + Objects.hashCode(this.displayObject);
+        hash = 53 * hash + Objects.hashCode(this.printerObject);
+        hash = 53 * hash + Objects.hashCode(this.customer);
+        hash = 53 * hash + Objects.hashCode(this.dataStrategy);
+        hash = 53 * hash + Objects.hashCode(this.dollarFormat);
+        hash = 53 * hash + Arrays.deepHashCode(this.lineItems);
+        hash = 53 * hash + Objects.hashCode(this.productId);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Receipt other = (Receipt) obj;
+        if (this.receiptId != other.receiptId) {
+            return false;
+        }
+        if (!Objects.equals(this.productId, other.productId)) {
+            return false;
+        }
+        if (!Objects.equals(this.validate, other.validate)) {
+            return false;
+        }
+        if (!Objects.equals(this.displayObject, other.displayObject)) {
+            return false;
+        }
+        if (!Objects.equals(this.printerObject, other.printerObject)) {
+            return false;
+        }
+        if (!Objects.equals(this.customer, other.customer)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataStrategy, other.dataStrategy)) {
+            return false;
+        }
+        if (!Objects.equals(this.dollarFormat, other.dollarFormat)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.lineItems, other.lineItems)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" + "validate=" + validate + ", receiptId=" + receiptId + ", displayObject=" + displayObject + ", printerObject=" + printerObject + ", customer=" + customer + ", dataStrategy=" + dataStrategy + ", dollarFormat=" + dollarFormat + ", lineItems=" + lineItems + ", productId=" + productId + '}';
     }
 }

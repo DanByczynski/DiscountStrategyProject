@@ -5,6 +5,8 @@
  */
 package discountstrategyproject;
 
+import java.util.Objects;
+
 /**
  *
  * @author danielbyczynski
@@ -65,4 +67,51 @@ public class Product {
         this.discount = discount;
     }
     
+    // ======== HashCode(), Equals(), and toString() ========
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 43 * hash + Objects.hashCode(this.validate);
+        hash = 43 * hash + Objects.hashCode(this.prodId);
+        hash = 43 * hash + Objects.hashCode(this.prodName);
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.unitCost) ^ (Double.doubleToLongBits(this.unitCost) >>> 32));
+        hash = 43 * hash + Objects.hashCode(this.discount);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Product other = (Product) obj;
+        if (Double.doubleToLongBits(this.unitCost) != Double.doubleToLongBits(other.unitCost)) {
+            return false;
+        }
+        if (!Objects.equals(this.prodId, other.prodId)) {
+            return false;
+        }
+        if (!Objects.equals(this.prodName, other.prodName)) {
+            return false;
+        }
+        if (!Objects.equals(this.validate, other.validate)) {
+            return false;
+        }
+        if (!Objects.equals(this.discount, other.discount)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "validate=" + validate + ", prodId=" + prodId + ", prodName=" + prodName + ", unitCost=" + unitCost + ", discount=" + discount + '}';
+    }
 }

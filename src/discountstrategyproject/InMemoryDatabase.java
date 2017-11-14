@@ -5,6 +5,8 @@
  */
 package discountstrategyproject;
 
+import java.util.Arrays;
+
 /**
  *
  * @author danielbyczynski
@@ -72,6 +74,42 @@ public class InMemoryDatabase implements ReceiptDataAccessStrategy {
         }
         
         return product;
+    }
+    
+    // ======== HashCode(), Equals(), and toString() ========
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Arrays.deepHashCode(this.customers);
+        hash = 89 * hash + Arrays.deepHashCode(this.products);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final InMemoryDatabase other = (InMemoryDatabase) obj;
+        if (!Arrays.deepEquals(this.customers, other.customers)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.products, other.products)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "InMemoryDatabase{" + "customers=" + customers + ", products=" + products + '}';
     }
 }
 

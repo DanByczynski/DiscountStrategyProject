@@ -5,6 +5,8 @@
  */
 package discountstrategyproject;
 
+import java.util.Objects;
+
 /**
  *
  * @author danielbyczynski
@@ -111,5 +113,65 @@ public class LineItem {
 
     public final void setProductSalePrice() {
         this.productSalePrice = product.getDiscountedAmount(productUnitPrice, quantity);
+    }
+    
+    // ======== HashCode(), Equals(), and toString() ========
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + Objects.hashCode(this.validate);
+        hash = 43 * hash + this.lineItemId;
+        hash = 43 * hash + Objects.hashCode(this.product);
+        hash = 43 * hash + Objects.hashCode(this.productName);
+        hash = 43 * hash + this.quantity;
+        hash = 43 * hash + Objects.hashCode(this.dollarFormat);
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.productUnitPrice) ^ (Double.doubleToLongBits(this.productUnitPrice) >>> 32));
+        hash = 43 * hash + (int) (Double.doubleToLongBits(this.productSalePrice) ^ (Double.doubleToLongBits(this.productSalePrice) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final LineItem other = (LineItem) obj;
+        if (this.lineItemId != other.lineItemId) {
+            return false;
+        }
+        if (this.quantity != other.quantity) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.productUnitPrice) != Double.doubleToLongBits(other.productUnitPrice)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.productSalePrice) != Double.doubleToLongBits(other.productSalePrice)) {
+            return false;
+        }
+        if (!Objects.equals(this.productName, other.productName)) {
+            return false;
+        }
+        if (!Objects.equals(this.validate, other.validate)) {
+            return false;
+        }
+        if (!Objects.equals(this.product, other.product)) {
+            return false;
+        }
+        if (!Objects.equals(this.dollarFormat, other.dollarFormat)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "LineItem{" + "validate=" + validate + ", lineItemId=" + lineItemId + ", product=" + product + ", productName=" + productName + ", quantity=" + quantity + ", dollarFormat=" + dollarFormat + ", productUnitPrice=" + productUnitPrice + ", productSalePrice=" + productSalePrice + '}';
     }
 }

@@ -5,6 +5,8 @@
  */
 package discountstrategyproject;
 
+import java.util.Objects;
+
 /**
  *
  * @author danielbyczynski
@@ -98,4 +100,47 @@ public class XForThePriceOfYDiscount implements DiscountStrategy {
         this.numberOfFreeProducts = numberOfFreeProducts;
     }
     
+    // ======== HashCode(), Equals(), and toString() ========
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.validate);
+        hash = 97 * hash + this.numberRequiredForFreeProduct;
+        hash = 97 * hash + this.numberOfFreeProducts;
+        hash = 97 * hash + this.calculatedNumberOfFreeProducts;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final XForThePriceOfYDiscount other = (XForThePriceOfYDiscount) obj;
+        if (this.numberRequiredForFreeProduct != other.numberRequiredForFreeProduct) {
+            return false;
+        }
+        if (this.numberOfFreeProducts != other.numberOfFreeProducts) {
+            return false;
+        }
+        if (this.calculatedNumberOfFreeProducts != other.calculatedNumberOfFreeProducts) {
+            return false;
+        }
+        if (!Objects.equals(this.validate, other.validate)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "XForThePriceOfYDiscount{" + "validate=" + validate + ", numberRequiredForFreeProduct=" + numberRequiredForFreeProduct + ", numberOfFreeProducts=" + numberOfFreeProducts + ", calculatedNumberOfFreeProducts=" + calculatedNumberOfFreeProducts + '}';
+    }
 }

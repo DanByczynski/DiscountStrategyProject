@@ -5,6 +5,8 @@
  */
 package discountstrategyproject;
 
+import java.util.Objects;
+
 /**
  *
  * @author danielbyczynski
@@ -50,4 +52,39 @@ public final class PercentOffDiscount implements DiscountStrategy {
         return discountPercentInput;
     }
     
+    // ======== HashCode(), Equals(), and toString() ========
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode(this.validate);
+        hash = 11 * hash + (int) (Double.doubleToLongBits(this.discountPercentInput) ^ (Double.doubleToLongBits(this.discountPercentInput) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PercentOffDiscount other = (PercentOffDiscount) obj;
+        if (Double.doubleToLongBits(this.discountPercentInput) != Double.doubleToLongBits(other.discountPercentInput)) {
+            return false;
+        }
+        if (!Objects.equals(this.validate, other.validate)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "PercentOffDiscount{" + "validate=" + validate + ", discountPercentInput=" + discountPercentInput + '}';
+    }
 }

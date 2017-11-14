@@ -34,9 +34,6 @@ public class PercentOffDiscountTest {
      */
     @Test
     public void TestInputPercentMatchesOutputWhenValid() {
-        System.out.println("Test to make sure the input percent matches the "
-                + "dollar amount that is returned when valid.");
-        
         double percentDiscount = .2;
         double productUnitCost = 10.0;
         int quantity = 1;
@@ -45,7 +42,7 @@ public class PercentOffDiscountTest {
         
         double expResult = 8.0;
         double result = instance.getDiscountAmount(productUnitCost, quantity);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, 0.001);
     }
     
     /**
@@ -53,13 +50,8 @@ public class PercentOffDiscountTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void TestInputPercentFailsWhenInvalid() {
-        System.out.println("Test to make sure the input percent matches the "
-                + "dollar amount that is returned when valid.");
-        
         double percentDiscount = -.2;
         
         PercentOffDiscount instance = new PercentOffDiscount(percentDiscount);
-        
-    }
-    
+    } 
 }
